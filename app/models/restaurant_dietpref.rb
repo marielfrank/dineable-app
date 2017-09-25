@@ -1,4 +1,4 @@
 class RestaurantDietPref < ActiveRecord::Base
   belongs_to :restaurant
-  belongs_to :dietpref
+  belongs_to :diet_pref
 end

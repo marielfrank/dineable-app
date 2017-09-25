@@ -1,0 +1,3 @@
+class DietPrefController < ApplicationController
+
+end
