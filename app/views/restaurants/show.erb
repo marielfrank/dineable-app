@@ -1,18 +1,21 @@
 <div class="jumbotron">
-  <h1>Restaurants</h1>
+  <h1><%= @restaurant.name %></h1>
   <div class="row">
     <div class="col-sm-8">
-
-      <% @restaurants = Restaurant.all.sort { |rest| rest.name } %>
+      <h2>Dietary Preferences Accomodated Here</h2>
       <ul>
-        <% @restaurants.each do |restaurant| %>
+        <% @restaurant.diet_prefs.each do |pref| %>
           <li>
-            <a href="/restaurants/<%= restaurant.slug %>">
-              <%= restaurant.name %>
+            <a href="/dietary-preferences/<%= pref.slug %>">
+              <%= pref.name %>
             </a>
           </li>
         <% end %>
       </ul>
+
+      <h2>Address</h2>
+      <p><%= @restaurant.address %></p>
+      <p>Added by <%= @restaurant.user %></p>
     </div>
 
     <div class="col-sm-4">
@@ -23,6 +26,11 @@
           </a>
         </h4>
       <% end %>
+      <h4>
+        <a href="/restaurants">
+          See all restaurants by name
+        </a>
+      </h4>
       <h4>
         <a href="/dietary-preferences">
           Find restaurants by dietary preference

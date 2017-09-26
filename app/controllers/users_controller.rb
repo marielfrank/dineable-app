@@ -2,7 +2,7 @@ class UserController < ApplicationController
   # allow visit to signup page unless logged in
   get '/signup' do
     if logged_in?
-      redirect "/#{current_user.slug}"
+      redirect "/users/#{current_user.slug}"
     else
       erb :'/users/signup'
     end
@@ -14,7 +14,7 @@ class UserController < ApplicationController
 
     if !params[:username].empty? && !params[:password].empty? && @user.save
       session[:user_id] = @user.id
-      redirect "/#{@user.slug}"
+      redirect "/users/#{@user.slug}"
     else
       redirect '/signup'
     end
@@ -23,7 +23,7 @@ class UserController < ApplicationController
   # allow visit to login page unless logged in
   get '/login' do
     if logged_in?
-      redirect "/#{current_user.slug}"
+      redirect "/users/#{current_user.slug}"
     else
       erb :'users/login'
     end
@@ -35,19 +35,19 @@ class UserController < ApplicationController
 
     if !!@user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect "/#{@user.slug}"
+      redirect "/users/#{@user.slug}"
     else
       redirect '/login'
     end
   end
 
   # user's page if signed in as that user
-  get '/:username' do
-    @user = User.find_by_slug(params[:username])
+  get '/users/:slug' do
+    @user = User.find_by_slug(params[:slug])
     if !!@user && logged_in? && @user == current_user
       erb :'/users/show'
     elsif logged_in?
-      redirect "/#{current_user.slug}"
+      redirect "/users/#{current_user.slug}"
     else
       redirect '/login'
     end

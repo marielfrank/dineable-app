@@ -22,7 +22,7 @@
       <% @diets = DietPref.all.sort {|d| d.name} %>
       <% @diets.each do |diet| %>
         <li>
-          <a href="/<%= diet.slug %>">
+          <a href="/dietary-preferences/<%= diet.slug %>">
             <%= diet.name %>
           </a>
         </li>
@@ -33,7 +33,7 @@
     <h3>Check out current restaurants:</h3>
     <% @rest = Restaurant.last %>
     <p>
-      <a href="/<%= @rest.slug %>">
+      <a href="/restaurants/<%= @rest.slug %>">
         <%= @rest.name %>
       </a>
       <br>
