@@ -1,0 +1,31 @@
+<div class="jumbotron">
+  <h1>Add a new restaurant</h1>
+  <form class="form" action="/restaurants" method="post">
+    <label for="name">Name</label><br>
+    <input type="text" name="restaurant[name]">
+    <br><br>
+    <label for="address">Address</label><br>
+    <input type="text" name="restaurant[address]">
+    <br><br>
+    <h3>Dietary Preferences Accommodated</h3>
+    <label for="diet_prefs">Select an existing preference</label><br>
+    <% DietPref.all.each do |pref| %>
+      <input type="checkbox" name="restaurant[diet_pref_ids][]" value="<%= pref.id %>" id="<%= pref.id %>">
+        <%= pref.name %>
+      </input>
+      <br>
+    <% end %>
+    <br>
+    <label for="diet_pref">Or add a new one</label><br>
+    <input type="text" name="diet_pref">
+    <br><br>
+    <input class="btn btn-primary" type="submit" value="Add Restaurant">
+  </form>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <a href="/" class="btn btn-outline-primary" role="button">
+      Home
+    </a>
+  </div>
+</div>

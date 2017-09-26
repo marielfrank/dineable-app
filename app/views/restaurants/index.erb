@@ -2,7 +2,6 @@
   <h1>Restaurants</h1>
   <div class="row">
     <div class="col-sm-8">
-
       <% @restaurants = Restaurant.all.sort { |rest| rest.name } %>
       <ul>
         <% @restaurants.each do |restaurant| %>
