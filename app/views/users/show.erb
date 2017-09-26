@@ -1,0 +1,14 @@
+<h1>Hey there, <%= @user.name %></h1>
+<h2>Your Restaurants</h2>
+<div class="row">
+  <% @restaurants = @user.restaurants.sort { |rest| rest.name} %>
+  <% @restaurants.each do |restaurant| %>
+
+    <div class="col-sm-12">
+      <a href="/<%= restaurant.slugify %>">
+        restaurant.name
+      </a>
+    </div>
+
+  <% end %>
+</div>
