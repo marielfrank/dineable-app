@@ -1,15 +1,29 @@
-<h1>Hey there, <%= @user.name %></h1>
+<div class="jumbotron">
+  <h1>Hey there, <%= @user.username %></h1>
 
-<h2>Your Restaurants</h2>
-<div class="row">
-  <% @restaurants = @user.restaurants.sort { |rest| rest.name} %>
-  <% @restaurants.each do |restaurant| %>
+    <div class="row">
+      <div class="col-8-sm">
+        <h3>Your Restaurants</h3>
+        <div class="row">
+          <% @restaurants = @user.restaurants.sort { |rest| rest.name} %>
+          <% @restaurants.each do |restaurant| %>
 
-    <div class="col-sm-12">
-      <a href="/<%= restaurant.slug %>">
-        restaurant.name
-      </a>
+            <div class="col-sm-12">
+              <a href="/<%= restaurant.slug %>">
+                restaurant.name
+              </a>
+            </div>
+
+          <% end %>
+      </div>
     </div>
+  </div>
+</div>
 
-  <% end %>
+<div class="row">
+  <div class="col-4-sm">
+    <form action="/logout" method="post">
+      <input type="submit" value="Log Out" class=".btn .btn-primary" type="button">
+    </form>
+  </div>
 </div>

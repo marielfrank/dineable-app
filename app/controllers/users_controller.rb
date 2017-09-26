@@ -1,10 +1,10 @@
 class UserController < ApplicationController
   # allow visit to signup page unless logged in
   get '/signup' do
-    if !logged_in?
-      erb :'/users/login'
+    if logged_in?
+      redirect "/#{current_user.slug}"
     else
-      redirect '/restaurants'
+      erb :'/users/signup'
     end
   end
 
@@ -22,7 +22,11 @@ class UserController < ApplicationController
 
   # allow visit to login page unless logged in
   get '/login' do
-
+    if logged_in?
+      redirect "/#{current_user.slug}"
+    else
+      erb :'users/login'
+    end
   end
 
   # log in user
@@ -44,6 +48,11 @@ class UserController < ApplicationController
 
   # logout
   post '/logout' do
-
+    if logged_in?
+      session.clear
+      redirect '/login'
+    else
+      redirect '/login'
+    end
   end
 end
