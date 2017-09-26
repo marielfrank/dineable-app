@@ -14,6 +14,7 @@ class UserController < ApplicationController
 
     if !params[:username].empty? && !params[:password].empty? && @user.save
       session[:user_id] = @user.id
+      redirect "/#{@user.username}"
     else
       redirect '/signup'
     end
@@ -21,6 +22,16 @@ class UserController < ApplicationController
 
   # allow visit to login page unless logged in
   get '/login' do
+
+  end
+
+  # log in user
+  post '/:username' do
+
+  end
+
+  # user's page if signed in as that user
+  get '/:username' do
 
   end
 
