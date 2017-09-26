@@ -15,13 +15,13 @@
 
       <h2>Address</h2>
       <p><%= @restaurant.address %></p>
-      <p>Added by <%= @restaurant.user %></p>
+      <p>Added by <%= @restaurant.user.username %></p>
     </div>
 
     <div class="col-sm-4">
       <% if logged_in? %>
         <h4>
-          <a href="/<%= current_user.slug %>">
+          <a href="/users/<%= current_user.slug %>">
             See your restaurants
           </a>
         </h4>

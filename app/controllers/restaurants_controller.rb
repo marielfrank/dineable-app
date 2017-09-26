@@ -24,11 +24,34 @@ class RestaurantController < ApplicationController
     if !params[:restaurant][:name].empty?
       @restaurant = Restaurant.create(params[:restaurant])
       @restaurant.user = current_user
-      @restaurant.diet_prefs << DietPref.new(name: params[:diet_pref])
+      if !params[:diet_pref][:name].empty?
+        @restaurant.diet_prefs << DietPref.new(name: params[:diet_pref][:name])
+      end
       @restaurant.save
-      redirect "/restaurants/<%= @restaurant.slug %>"
+      redirect "/restaurants/#{@restaurant.slug}"
     else
       redirect '/restaurants/new'
     end
+  end
+
+  get '/restaurants/:slug/edit' do
+    @restaurant = Restaurant.find_by_slug(params[:slug])
+    if !!@restaurant && logged_in? && current_user.restaurants.include?(@restaurant)
+      erb :'/restaurants/edit'
+    elsif logged_in?
+      redirect "/restaurants/#{@restaurant.slug}"
+    else
+      redirect '/login'
+    end
+  end
+
+  post '/restaurants/:slug' do
+    @restaurant = Restaurant.find_by_slug(params[:slug])
+    @restaurant.update(params[:restaurant])
+    if !params[:diet_pref][:name].empty?
+      @restaurant.diet_prefs << DietPref.new(name: params[:diet_pref][:name])
+    end
+    @restaurant.save
+    redirect "/restaurants/#{@restaurant.slug}"
   end
 end

@@ -2,7 +2,7 @@
   <h1>Restaurants</h1>
   <div class="row">
     <div class="col-sm-8">
-      <% @restaurants = Restaurant.all.sort { |rest| rest.name } %>
+      <% @restaurants = Restaurant.all.sort_by { |rest| rest.slug } %>
       <ul>
         <% @restaurants.each do |restaurant| %>
           <li>
@@ -16,6 +16,9 @@
 
     <div class="col-sm-4">
       <% if logged_in? %>
+        <a href="/restaurants/new" class="btn btn-primary" role="button">
+          Add a new restaurant
+        </a>
         <h4>
           <a href="/<%= current_user.slug %>">
             See your restaurants

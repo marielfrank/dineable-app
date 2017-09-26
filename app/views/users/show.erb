@@ -4,11 +4,11 @@
     <div class="col-sm-8">
       <h3>Your Restaurants</h3>
 
-      <% @restaurants = @user.restaurants.sort { |rest| rest.name } %>
+      <% @restaurants = @user.restaurants.sort_by { |rest| rest.slug } %>
       <ul>
         <% @restaurants.each do |restaurant| %>
           <li>
-            <a href="/<%= restaurant.slug %>">
+            <a href="/restaurants/<%= restaurant.slug %>">
               <%= restaurant.name %>
             </a>
           </li>
@@ -17,6 +17,9 @@
     </div>
 
     <div class="col-sm-4">
+      <a href="/restaurants/new" class="btn btn-primary" role="button">
+        Add a new restaurant
+      </a>
       <h4>
         <a href="/restaurants">
           See all restaurants by name

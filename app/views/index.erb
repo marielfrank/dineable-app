@@ -16,35 +16,50 @@
 </div>
 
 <div class="row">
-  <div class="col-sm-6">
-    <h3>Find restaurants by dietary preference:</h3>
-    <ul>
-      <% @diets = DietPref.all.sort {|d| d.name} %>
-      <% @diets.each do |diet| %>
-        <li>
-          <a href="/dietary-preferences/<%= diet.slug %>">
-            <%= diet.name %>
-          </a>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-  <div class="col-sm-6">
-    <h3>Check out current restaurants:</h3>
-    <% @rest = Restaurant.last %>
-    <p>
-      <a href="/restaurants/<%= @rest.slug %>">
-        <%= @rest.name %>
-      </a>
-      <br>
-      <%= @rest.address %>
-      <br>
-      Added by <%= @rest.user %>
-    </p>
-    <p>
-      <a href="/restaurants">
-        See More
-      </a>
-    </p>
-  </div>
+  <% unless Restaurant.all.empty? %>
+    <div class="col-sm-6">
+      <h3>Find restaurants by dietary preference:</h3>
+      <ul>
+        <% @diets = DietPref.all.sort_by {|d| d.name} %>
+        <% @diets.each do |diet| %>
+          <li>
+            <a href="/dietary-preferences/<%= diet.slug %>">
+              <%= diet.name %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% unless Restaurant.all.empty? %>
+    <div class="col-sm-6">
+      <h3>Check out the latest restaurant:</h3>
+      <% @rest = Restaurant.last %>
+      <p>
+        <a href="/restaurants/<%= @rest.slug %>">
+          <%= @rest.name %>
+        </a>
+      </p>
+      <p>Good for:</p>
+      <ul>
+        <% @rest.diet_prefs.each do |pref| %>
+          <li>
+            <a href="/dietary-preferences/<%= pref.slug %>">
+              <%= pref.name %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+      <p>
+        <%= @rest.address %>
+        <br>
+        Added by <%= @rest.user.username %>
+      </p>
+      <p>
+        <a href="/restaurants">
+          See More
+        </a>
+      </p>
+    </div>
+  <% end %>
 </div>
