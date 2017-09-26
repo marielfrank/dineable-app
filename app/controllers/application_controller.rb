@@ -12,7 +12,11 @@ class ApplicationController < Sinatra::Base
 
   # allow visit to homepage
   get '/' do
-    erb :index
+    if logged_in?
+      redirect "/#{current_user.slug}"
+    else
+      erb :index
+    end
   end
 
   helpers do
