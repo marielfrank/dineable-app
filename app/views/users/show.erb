@@ -1,29 +1,37 @@
 <div class="jumbotron">
   <h1>Hey there, <%= @user.username %></h1>
+  <div class="row">
+    <div class="col-sm-8">
+      <h3>Your Restaurants</h3>
 
-    <div class="row">
-      <div class="col-8-sm">
-        <h3>Your Restaurants</h3>
-        <div class="row">
-          <% @restaurants = @user.restaurants.sort { |rest| rest.name} %>
-          <% @restaurants.each do |restaurant| %>
+      <% @restaurants = @user.restaurants.sort { |rest| rest.name} %>
+      <ul>
+        <% @restaurants.each do |restaurant| %>
+          <li>
+            <a href="/<%= restaurant.slug %>">
+              <%= restaurant.name %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
 
-            <div class="col-sm-12">
-              <a href="/<%= restaurant.slug %>">
-                restaurant.name
-              </a>
-            </div>
-
-          <% end %>
-      </div>
+    <div class="col-sm-4">
+      <h4>
+        <a href="/restaurants">
+          See all restaurants by name
+        </a>
+      </h4>
+      <h4>
+        <a href="/dietary-preferences">
+          See all dietary preferences by name
+        </a>
+      </h4>
     </div>
   </div>
 </div>
-
-<div class="row">
-  <div class="col-4-sm">
-    <form action="/logout" method="post">
-      <input type="submit" value="Log Out" class=".btn .btn-primary" type="button">
-    </form>
-  </div>
+<div class="col-sm-4">
+  <form action="/logout" method="post">
+    <input type="submit" value="Log Out" class="btn btn-outline-secondary" type="button">
+  </form>
 </div>

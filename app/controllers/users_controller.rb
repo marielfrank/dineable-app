@@ -30,8 +30,15 @@ class UserController < ApplicationController
   end
 
   # log in user
-  post '/:username' do
+  post '/login' do
+    @user = User.find_by(username: params[:username])
 
+    if !!@user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect "/#{@user.slug}"
+    else
+      redirect '/login'
+    end
   end
 
   # user's page if signed in as that user
