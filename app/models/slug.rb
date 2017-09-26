@@ -1,14 +1,14 @@
 module Slug
   module InstanceMethods
     def slug
-      username.downcase.gsub(" ", "-")
+      self.class == User ? username.downcase.gsub(" ", "-") : name.downcase.gsub(" ", "-")
     end
   end
 
   module ClassMethods
     def find_by_slug(slug)
-      all.detect do |user|
-        user.slug == slug
+      all.detect do |object|
+        object.slug == slug
       end
     end
   end

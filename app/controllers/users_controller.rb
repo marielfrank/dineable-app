@@ -14,7 +14,7 @@ class UserController < ApplicationController
 
     if !params[:username].empty? && !params[:password].empty? && @user.save
       session[:user_id] = @user.id
-      redirect "/#{@user.username}"
+      redirect "/#{@user.slug}"
     else
       redirect '/signup'
     end
@@ -32,7 +32,14 @@ class UserController < ApplicationController
 
   # user's page if signed in as that user
   get '/:username' do
-
+    @user = User.find_by_slug(params[:username])
+    if !!@user && logged_in? && @user == current_user
+      erb :'/users/show'
+    elsif logged_in?
+      redirect "/#{current_user.slug}"
+    else
+      redirect '/login'
+    end
   end
 
   # logout

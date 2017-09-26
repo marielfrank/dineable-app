@@ -1,11 +1,41 @@
 <h1>Welcome to Dineable!</h1>
-<p>
-  <a href="/signup">
-    Sign Up
-  </a>
-</p>
-<p>
-  <a href="/login">
-    Log In
-  </a>
-</p>
+<h2>Find and add restaurants that accomodate your dietary preferences and needs.</h2>
+<form action="/signup" method="link">
+  <input class=".btn-primary" type="submit" value="Sign Up">
+</form>
+<form action="/login" method="link">
+  <input class=".btn-default" type="submit" value="Log In">
+</form>
+<div class="row">
+  <div class="col-sm-6">
+    <h3>Find restaurants by dietary preference:</h3>
+    <ul>
+      <% @diets = DietPref.all.sort {|d| d.name} %>
+      <% @diets.each do |diet| %>
+        <li>
+          <a href="/<%= diet.slug %>">
+            <%= diet.name %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-sm-6">
+    <h3>Check out current restaurants:</h3>
+    <% @rest = Restaurant.last %>
+    <p>
+      <a href="/<%= @rest.slug %>">
+        <%= @rest.name %>
+      </a>
+      <br>
+      <%= @rest.address %>
+      <br>
+      Added by <%= @rest.user %>
+    </p>
+    <p>
+      <a href="/restaurants">
+        See More
+      </a>
+    </p>
+  </div>
+</div>
