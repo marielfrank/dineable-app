@@ -20,6 +20,14 @@
 
     <div class="col-sm-4">
       <% if logged_in? %>
+        <% if current_user.restaurants.include?(@restaurant) %>
+          <a href="/restaurants/<%= @restaurant.slug %>/edit" class="btn btn-primary" role="button">
+            Edit <%= @restaurant.name %>
+          </a>
+          <form class="" action="/restaurants/<%= @restaurant.slug %>/delete" method="post">
+            <input class="btn btn-secondary" type="submit" value="Delete <%= @restaurant.name %>">
+          </form>
+        <% end %>
         <h4>
           <a href="/users/<%= current_user.slug %>">
             See your restaurants
