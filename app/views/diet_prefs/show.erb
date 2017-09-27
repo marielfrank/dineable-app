@@ -1,0 +1,50 @@
+<div class="jumbotron">
+  <h1><%= @dietpref.name %></h1>
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Restaurants that accommodate <%= @dietpref.name %></h2>
+      <ul>
+        <% @restaurants = @dietpref.restaurants.sort_by { |rest| rest.name } %>
+        <% @restaurants.each do |restaurant| %>
+          <li>
+            <a href="/restaurants/<%= restaurant.slug %>">
+              <%= restaurant.name %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+
+    </div>
+
+    <div class="col-sm-4">
+      <% if logged_in? %>
+        <h4>
+          <a href="/users/<%= current_user.slug %>">
+            See your restaurants
+          </a>
+        </h4>
+      <% end %>
+      <h4>
+        <a href="/restaurants">
+          See all restaurants by name
+        </a>
+      </h4>
+      <h4>
+        <a href="/dietary-preferences">
+          Find restaurants by dietary preference
+        </a>
+      </h4>
+    </div>
+  </div>
+</div>
+<div class="col-sm-4">
+  <% if logged_in? %>
+    <form action="/logout" method="post">
+      <input type="submit" value="Log Out" class="btn btn-outline-secondary" type="button">
+    </form>
+  <% else %>
+    <a href="/login" class="btn btn-outline-primary" role="button">
+      Log In
+    </a>
+  <% end %>
+</div>
