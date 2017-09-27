@@ -21,3 +21,6 @@ An app designed to help you find a place to eat, whatever your (or your loved on
     $ shotgun
 
 Visit the server address listed and enjoy!
+
+## License
+[MIT License](https://github.com/marielfrank/dineable-app/blob/master/LICENSE)
