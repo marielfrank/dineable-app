@@ -58,22 +58,22 @@ form > input {
     font-size: 20px;
 }
 
-/* On hover, the color of .btn will transition to white with black text */
+/* On hover, the color of .btn will transition */
 .btn:hover, .btn:focus {
     background-color: #fff;
     color: #8accc9;
     border: 1px solid #8accc9;
 }
 
-form > .btn, .btn-outline-secondary {
+form > .btn, .btn-outline-secondary, .jumbotron .btn {
   border: 1px solid #8accc9;
   background-color: #fff;
   color: #8accc9;
 }
 
-form > .btn:hover, .btn-outline-secondary:hover, form > .btn:focus, .btn-outline-secondary:focus {
+form > .btn:hover, .btn-outline-secondary:hover, form > .btn:focus, .btn-outline-secondary:focus, .jumbotron .btn:hover, .jumbotron .btn:focus {
   background-color: #fef2e6;
-  color: #333;
+  color: #8accc9;
 }
 
 h1 {
