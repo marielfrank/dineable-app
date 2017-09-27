@@ -1,8 +1,30 @@
+/*------ General Stuff ------*/
 body {
   color: #62554c;
 }
 
-.navbar-default {
+p, li {
+  font-size: 18px;
+}
+
+h1 {
+  font-family: 'Amiri', serif;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+a {
+  color: #8accc9;
+}
+
+.container:after {
+  padding-bottom: 100px;
+}
+
+/*------ Nav Bar ------*/
+.navbar {
   background-color: #8accc9;
   border-color: #8accc9;
 }
@@ -15,7 +37,7 @@ navbar {
 	height: 95px;
 }
 
-.navbar-default .navbar-brand {
+.navbar .navbar-brand {
   color: #fff;
   font-size: 50px;
   font-family: 'Gurajada', serif;
@@ -27,20 +49,26 @@ navbar {
   margin-right: 15px;
 }
 
+/*------ Flash Messages ------*/
+#flash {
+  background-color: #ffe97e;
+  height: 40px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+/*------ Jumbotron ------*/
 .jumbotron {
   background-color: #5ab6f3;
   border-radius: 0 !important;
   color: #fff;
 }
 
-a {
-  color: #8accc9;
-}
-
 .jumbotron a {
   color: #fef2e6;
 }
 
+/*------ Form ------*/
 form > input {
   color: #b5a89f;
   padding: 5px 10px;
@@ -48,38 +76,95 @@ form > input {
   border: none;
 }
 
+/*------ Buttons | General Specs ------*/
 .btn {
-    padding: 10px 20px;
-    background-color: #8accc9;
-    color: #fff;
-    border-radius: 0;
-    border: 1px solid #8accc9;
-    transition: .2s;
-    font-size: 20px;
-}
-
-/* On hover, the color of .btn will transition */
-.btn:hover, .btn:focus {
-    background-color: #fff;
-    color: #8accc9;
-    border: 1px solid #8accc9;
-}
-
-form > .btn, .btn-outline-secondary, .jumbotron .btn {
-  border: 1px solid #8accc9;
-  background-color: #fff;
-  color: #8accc9;
-}
-
-form > .btn:hover, .btn-outline-secondary:hover, form > .btn:focus, .btn-outline-secondary:focus, .jumbotron .btn:hover, .jumbotron .btn:focus {
-  background-color: #fef2e6;
-  color: #8accc9;
+  padding: 10px 20px;
+  border-radius: 0;
+  transition: .2s;
+  font-size: 20px;
 }
 
 .submit-btn {
   margin: 10px 0;
 }
 
-h1 {
-  font-family: 'Amiri', serif;
+/*------ Buttons | Log In ------*/
+.btn.btn-primary {
+  color: #fff;
+  background-color: #8accc9;
+  border: 2px solid #8accc9;
+}
+
+/*------ Buttons | Log Out & Sign Up ------*/
+.btn.btn-outline-secondary, form > .btn.btn-outline-secondary {
+  color: #8accc9;
+  background-color: #fff;
+  border: 2px solid #8accc9;
+}
+
+/*------ Buttons | Main CTA Buttons ------*/
+form > .btn.btn-primary, .jumbotron .btn.btn-primary {
+  border: 2px solid #fff;
+  background-color: #fff;
+  color: #5ab6f3;
+}
+
+/*------ Buttons | All others on Jumbotron ------*/
+.jumbotron .btn.btn-outline-secondary, form > .outline {
+  border: 2px solid #fff;
+  background-color: transparent;
+  color: #fff;
+}
+
+/*------ Buttons | Login on hover transition ------*/
+.btn.btn-primary:hover, .btn.btn-primary:focus {
+  color: #8accc9;
+  background-color: #fff;
+  border: 2px solid #8accc9;
+}
+
+/*------ Buttons | Log Out & Sign Up on hover transition ------*/
+.btn.btn-outline-secondary:hover, .btn.btn-outline-secondary:focus {
+  color: #fff;
+  background-color: #8accc9;
+  border: 2px solid #8accc9;
+}
+
+/*------ Buttons | Main CTA Buttons on hover transition ------*/
+form > .btn.btn-primary:hover, .jumbotron .btn.btn-primary:hover,
+form > .btn.btn-primary:focus, .jumbotron .btn.btn-primary:focus {
+  border: 2px solid #fff;
+  background-color: #5ab6f3;
+  color: #fff;
+}
+
+/*------ Buttons | All others on Jumbotron on hover transition ------*/
+.jumbotron .btn.btn-outline-secondary:hover, form > .outline:hover,
+.jumbotron .btn.btn-outline-secondary:focus, form > .outline:focus {
+  border: 2px solid #fff;
+  background-color: #fff;
+  color: #5ab6f3;
+}
+
+/*------ FOOTER ------*/
+.pad-30 {
+  padding: 30px 0;
+}
+
+.pull-right.foot-note {
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.pull-right a {
+  color: #fff;
+  margin: 0 auto;
+}
+
+footer {
+  margin-top: 30px;
+  background-color: #b5a89f;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }

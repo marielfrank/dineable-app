@@ -1,12 +1,22 @@
 <div class="jumbotron">
   <h1>Sign Up</h1>
-  <form class="form" action="/signup" method="post">
-    <label for="username">Username</label>
-    <input type="text" name="username">
-    <br>
-    <label for="password">Password</label>
-    <input type="password" name="password">
-    <br>
-    <input class="btn btn-primary submit-btn" type="submit" value="Sign Up">
-  </form>
+  <div class="row">
+    <div class="col-sm-8">
+      <form class="form" action="/signup" method="post">
+        <label for="username">Username</label>
+        <input type="text" name="username">
+        <br>
+        <label for="password">Password</label>
+        <input type="password" name="password">
+        <br>
+        <input class="btn btn-primary submit-btn" type="submit" value="Sign Up">
+      </form>
+    </div>
+    <div class="col-sm-4">
+      <p>Already have an account?</p>
+      <a href="/login" class="btn btn-outline-secondary" role="button">
+        Log In
+      </a>
+    </div>
+  </div>
 </div>

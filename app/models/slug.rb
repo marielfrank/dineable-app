@@ -1,3 +1,4 @@
+# allow for cleaner urls
 module Slug
   module InstanceMethods
     def slug

@@ -1,16 +1,17 @@
 <div class="jumbotron">
   <h1>Welcome to Dineable!</h1>
   <h2>Find and add restaurants that accomodate your dietary preferences and needs.</h2>
-
-    <div class="col-sm-6">
-      <a href="/signup" class="btn btn-primary" role="button">
-        Sign Up
-      </a>
-    </div>
-    <div class="col-sm-6">
-      <a href="/login" class="btn btn-outline-primary" role="button">
-        Log In
-      </a>
+    <div class="row pad-30">
+      <div class="col-sm-6">
+        <a href="/signup" class="btn btn-primary" role="button">
+          Sign Up
+        </a>
+      </div>
+      <div class="col-sm-6">
+        <a href="/login" class="btn btn-outline-secondary" role="button">
+          Log In
+        </a>
+      </div>
     </div>
 
 </div>
@@ -35,11 +36,11 @@
     <div class="col-sm-6">
       <h3>Check out the latest restaurant:</h3>
       <% @rest = Restaurant.last %>
-      <p>
+      <h3>
         <a href="/restaurants/<%= @rest.slug %>">
           <%= @rest.name %>
         </a>
-      </p>
+      </h3>
       <p>Good for:</p>
       <ul>
         <% @rest.diet_prefs.each do |pref| %>
@@ -51,13 +52,13 @@
         <% end %>
       </ul>
       <p>
-        <%= @rest.address %>
+        Address: <%= @rest.address %>
         <br>
         Added by <%= @rest.user.username %>
       </p>
       <p>
         <a href="/restaurants">
-          See More
+          See More >
         </a>
       </p>
     </div>

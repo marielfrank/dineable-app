@@ -10,26 +10,41 @@
     <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
     <title>Dineable</title>
   </head>
+
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
+    <nav class="navbar fixed-top">
+      <!-- <div class="container-fluid"> -->
         <div class="navbar-header">
           <a class="navbar-brand" href="/">
             <img alt="Dineable Pusheen" src="http://i.stack.imgur.com/sl8Xl.gif">
             Dineable
           </a>
         </div>
-      </div>
+      <!-- </div> -->
     </nav>
+
     <div class="container-fluid">
       <div class="container">
+        <!-- Flash Message -->
         <% if !!flash[:message] %>
           <div id='flash'>
-           <%= flash[:message] %>
+           /// <%= flash[:message] %>
           </div>
         <% end %>
+        <!-- End of Flash Message -->
         <%= yield %>
       </div>
     </div>
+
+    <footer>
+      <div class="container-fluid">
+        <div class="pull-right foot-note">
+          <p>
+            <a href="https://github.com/marielfrank">Made by Mariel &#x1f35c;</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
   </body>
 </html>
