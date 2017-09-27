@@ -18,6 +18,9 @@
 
     <div class="col-sm-4">
       <% if logged_in? %>
+        <a href="/restaurants/new" class="btn btn-outline-secondary" role="button">
+          Add a new restaurant
+        </a>
         <h4>
           <a href="/users/<%= current_user.slug %>">
             See your restaurants

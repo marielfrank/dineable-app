@@ -8,6 +8,7 @@ class ApplicationController < Sinatra::Base
     # Set up sessions
     enable :sessions
     set :session_secret, "password_security"
+    register Sinatra::Flash
   end
 
   # allow visit to homepage

@@ -8,6 +8,7 @@ gem 'rake'
 gem 'require_all'
 gem 'thin'
 gem 'bcrypt'
+gem 'sinatra-flash', :require => 'sinatra/flash'
 
 group :development do
     gem 'shotgun'

@@ -24,9 +24,12 @@
           <a href="/restaurants/<%= @restaurant.slug %>/edit" class="btn btn-primary" role="button">
             Edit <%= @restaurant.name %>
           </a>
-          <form class="" action="/restaurants/<%= @restaurant.slug %>/delete" method="post">
-            <input class="btn btn-secondary" type="submit" value="Delete <%= @restaurant.name %>">
+          <form action="/restaurants/<%= @restaurant.slug %>/delete" method="post">
+            <input class="btn btn-secondary submit-btn" type="submit" value="Delete <%= @restaurant.name %>">
           </form>
+          <a href="/restaurants/new" class="btn btn-outline-secondary" role="button">
+            Add a new restaurant
+          </a>
         <% end %>
         <h4>
           <a href="/users/<%= current_user.slug %>">

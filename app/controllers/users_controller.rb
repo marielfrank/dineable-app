@@ -16,6 +16,7 @@ class UserController < ApplicationController
       session[:user_id] = @user.id
       redirect "/users/#{@user.slug}"
     else
+      flash[:message] = "Oops! Looks like you have a field or two that isn't quite right...please try again :)"
       redirect '/signup'
     end
   end
@@ -37,6 +38,7 @@ class UserController < ApplicationController
       session[:user_id] = @user.id
       redirect "/users/#{@user.slug}"
     else
+      flash[:message] = "Oops! Looks like you have a field or two that isn't quite right...please try again :)"
       redirect '/login'
     end
   end

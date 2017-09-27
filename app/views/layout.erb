@@ -23,6 +23,11 @@
     </nav>
     <div class="container-fluid">
       <div class="container">
+        <% if !!flash[:message] %>
+          <div id='flash'>
+           <%= flash[:message] %>
+          </div>
+        <% end %>
         <%= yield %>
       </div>
     </div>
