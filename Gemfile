@@ -11,8 +11,8 @@ gem 'bcrypt'
 gem 'sinatra-flash', :require => 'sinatra/flash'
 
 group :development do
-    gem 'shotgun'
-    gem 'pry'
-    gem 'tux'
-    gem 'sqlite3'
+  gem 'shotgun'
+  gem 'pry'
+  gem 'tux'
+  gem 'sqlite3'
 end
