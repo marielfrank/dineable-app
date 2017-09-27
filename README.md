@@ -20,4 +20,4 @@ An app designed to help you find a place to eat, whatever your (or your loved on
 
     $ shotgun
 
-Visit the server address listed.
+Visit the server address listed and enjoy!
