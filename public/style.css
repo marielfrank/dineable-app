@@ -1,0 +1,81 @@
+body {
+  color: #62554c;
+}
+
+.navbar-default {
+  background-color: #8accc9;
+  border-color: #8accc9;
+}
+
+navbar {
+  border-radius: 0;
+}
+
+.navbar-brand {
+	height: 95px;
+}
+
+.navbar-default .navbar-brand {
+  color: #fff;
+  font-size: 40px;
+  font-family: 'Gurajada', serif;
+}
+
+.navbar-brand > img {
+  width: 70px;
+	display: inline-block;
+  margin-right: 15px;
+}
+
+.jumbotron {
+  background-color: #5ab6f3;
+  border-radius: 0 !important;
+  color: #fff;
+}
+
+a {
+  color: #8accc9;
+}
+
+.jumbotron a {
+  color: #fef2e6;
+}
+
+form > input {
+  color: #b5a89f;
+  padding: 5px 10px;
+  margin: 10px;
+  border: none;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #8accc9;
+    color: #fff;
+    border-radius: 0;
+    border: 1px solid #8accc9;
+    transition: .2s;
+    font-size: 20px;
+}
+
+/* On hover, the color of .btn will transition to white with black text */
+.btn:hover, .btn:focus {
+    background-color: #fff;
+    color: #8accc9;
+    border: 1px solid #8accc9;
+}
+
+form > .btn, .btn-outline-secondary {
+  border: 1px solid #8accc9;
+  background-color: #fff;
+  color: #8accc9;
+}
+
+form > .btn:hover, .btn-outline-secondary:hover, form > .btn:focus, .btn-outline-secondary:focus {
+  background-color: #fef2e6;
+  color: #333;
+}
+
+h1 {
+  font-family: 'Amiri', serif;
+}
