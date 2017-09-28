@@ -14,6 +14,7 @@ An app designed to help you find a place to eat, whatever your (or your loved on
 
     $ git clone https://github.com/marielfrank/dineable-app
     $ cd dineable-app
+    $ bundle install
     $ rake db:create && rake db:migrate
 
 ## Run the server
