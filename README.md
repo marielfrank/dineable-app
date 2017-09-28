@@ -22,5 +22,7 @@ An app designed to help you find a place to eat, whatever your (or your loved on
 
 Visit the server address listed and enjoy!
 
+Please review the [contributors guide](https://github.com/marielfrank/dineable-app/blob/master/contributers-guide.md) if you would like to contribute to this project.
+
 ## License
 [MIT License](https://github.com/marielfrank/dineable-app/blob/master/LICENSE)
