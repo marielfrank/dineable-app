@@ -27,8 +27,8 @@ class RestaurantController < ApplicationController
         # if new dietary preference was added, create new DietPref
         # and associate it with the restaurant, then save
         @restaurant.diet_prefs << DietPref.new(name: params[:diet_pref][:name])
-        @restaurant.save
       end
+      @restaurant.save
       # send user to restaurant's show page
       flash[:message] = "Nice! You added a new restaurant :)"
       redirect "/restaurants/#{@restaurant.slug}"
