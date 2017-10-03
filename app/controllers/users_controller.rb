@@ -14,15 +14,15 @@ class UserController < ApplicationController
   # signup form action to create new user
   post '/signup' do
     # instantiate new user based on signup form values
-    @user = User.new(username: params[:username], password: params[:password])
+    user = User.new(params[:user])
     # ensure username and password are not empty, and user can be saved
-    if !params[:username].empty? && !params[:password].empty? && @user.save
+    if user.save
       # set new session user_id & send user to their homepage
-      session[:user_id] = @user.id
-      redirect "/users/#{@user.slug}"
+      session[:user_id] = user.id
+      redirect "/users/#{user.slug}"
     else
       # let user know form was not completed correctly & redirect to signup again
-      flash[:message] = "Oops! Looks like you have a field or two that isn't quite right...please try again :)"
+      flash[:message] = "#{user.errors.full_messages.join(', ')}"
       redirect '/signup'
     end
   end
